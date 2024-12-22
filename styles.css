@@ -1,0 +1,123 @@
+/* Base styles and color palette */
+:root {
+    --primary-color: #6A5ACD; /* Slate Blue */
+    --accent-color: #FFA500; /* Gold */
+    --text-color: #FFFFFF; /* White */
+    --background-color: #282A36; /* Rich Black */
+    --button-hover: #FF9800; /* Orange */
+    --zg: #6A5ACD;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.option-container, .section-container {
+    background: var(--background-color);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    width: 90%;
+    max-width: 360px;
+    margin-bottom: 20px;
+}
+
+.section-header {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.input-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.input-row label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+input[type="number"], input[type="radio"] {
+    padding: 12px;
+    border-radius: 8px;
+    background: var(--background-color);
+    border: 2px solid var(--accent-color);
+    color: var(--text-color);
+}
+
+.button-63 {
+    background: var(--accent-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-63:hover {
+    background-color: var(--button-hover);
+}
+
+.result {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--primary-color);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Stylish radio buttons */
+.radio-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radio-input label {
+    background: var(--background-color);
+    border: 2px solid var(--zg);
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.radio-input label:hover {
+    background-color: var(--button-hover);
+}
+
+.radio-input input[type="radio"] {
+    accent-color: var(--accent-color);
+}
+
+.radio-input .text {
+    color: var(--text-color);
+}
+
