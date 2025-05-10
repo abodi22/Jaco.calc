@@ -259,3 +259,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Hide loading screen and show A2HS banner if not installed
+window.addEventListener('DOMContentLoaded', function() {
+  // Hide loading screen
+  var loading = document.getElementById('loading-screen');
+  if (loading) loading.style.display = 'none';
+
+  // Show A2HS banner if not standalone
+  if (window.matchMedia('(display-mode: standalone)').matches === false) {
+    var a2hs = document.getElementById('a2hs-banner');
+    if (a2hs) a2hs.style.display = 'block';
+  }
+});
