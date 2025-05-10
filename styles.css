@@ -1,123 +1,252 @@
 /* Base styles and color palette */
 :root {
-    --primary-color: #6A5ACD; /* Slate Blue */
-    --accent-color: #FFA500; /* Gold */
+    --primary-color: #7B3FF2; /* Jaco Purple */
+    --accent-color: #FFB84C; /* Jaco Orange */
+    --accent-yellow: #FFD700; /* Jaco Yellow */
     --text-color: #FFFFFF; /* White */
-    --background-color: #282A36; /* Rich Black */
-    --button-hover: #FF9800; /* Orange */
-    --zg: #6A5ACD;
+    --background-color: #2D1457; /* Deep Purple */
+    --button-hover: #FFD700; /* Yellow for hover */
+    --zg: #7B3FF2;
+    --card-bg: #FFFFFF;
+    --card-shadow: 0 8px 16px rgba(123, 63, 242, 0.08);
+    --input-bg: #F3F0FF;
+    --input-border: #7B3FF2;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    padding: 20px;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
-    color: var(--text-color);
+    padding: 16px;
+    background: var(--primary-color);
+    color: var(--background-color);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    box-sizing: border-box;
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin: 20px 0;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     color: var(--text-color);
+    text-shadow: 2px 2px 8px rgba(45, 20, 87, 0.15);
 }
 
-.option-container, .section-container {
-    background: var(--background-color);
+.radio-input {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 20px;
+}
+
+.radio-input label {
+    background: var(--card-bg);
+    border: 2px solid var(--primary-color);
     padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ddd;
-    width: 90%;
-    max-width: 360px;
-    margin-bottom: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s, border-color 0.2s;
+    color: var(--background-color);
+    font-weight: 500;
+}
+
+.radio-input label:hover {
+    background-color: var(--accent-color);
+    border-color: var(--button-hover);
+    color: var(--background-color);
+    transform: translateY(-2px);
+}
+
+.radio-input input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary-color);
+}
+
+.radio-input .text {
+    color: var(--background-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.section-container {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 20px;
+    border: 1px solid var(--primary-color);
+    color: var(--background-color);
 }
 
 .section-header {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
     font-weight: bold;
-    color: var(--accent-color);
+    color: var(--primary-color);
+    text-align: center;
 }
 
 .input-row {
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
 }
 
 .input-row label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+    font-size: 1.1rem;
 }
 
-input[type="number"], input[type="radio"] {
-    padding: 12px;
-    border-radius: 8px;
-    background: var(--background-color);
-    border: 2px solid var(--accent-color);
-    color: var(--text-color);
+input[type="number"] {
+    padding: 12px 16px;
+    border-radius: 12px;
+    background: var(--input-bg);
+    border: 2px solid var(--input-border);
+    color: var(--background-color);
+    font-size: 1.1rem;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
 }
 
 .button-63 {
     background: var(--accent-color);
-    color: var(--text-color);
-    padding: 10px 20px;
+    color: var(--background-color);
+    padding: 14px 24px;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(123, 63, 242, 0.08);
 }
 
 .button-63:hover {
     background-color: var(--button-hover);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(255, 184, 76, 0.15);
+}
+
+.button-63:active {
+    transform: translateY(0);
 }
 
 .result {
-    margin-top: 10px;
+    margin-top: 20px;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1.2rem;
     color: var(--primary-color);
+    text-align: center;
+    padding: 15px;
+    background: var(--input-bg);
+    border-radius: 12px;
+    border: 1px solid var(--accent-color);
 }
 
 .hidden {
     display: none;
 }
 
-/* Stylish radio buttons */
-.radio-input {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+footer {
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
 }
 
-.radio-input label {
-    background: var(--background-color);
-    border: 2px solid var(--zg);
-    padding: 10px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-}
-
-.radio-input label:hover {
-    background-color: var(--button-hover);
-}
-
-.radio-input input[type="radio"] {
-    accent-color: var(--accent-color);
-}
-
-.radio-input .text {
+.credit {
     color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+/* Media Queries for better mobile responsiveness */
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+
+    .section-container {
+        padding: 16px;
+    }
+
+    .radio-input label {
+        padding: 12px;
+    }
+
+    .button-63 {
+        padding: 12px 20px;
+    }
+}
+
+/* Add smooth transitions for section changes */
+.section-container {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.section-container.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Add loading animation for calculations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.button-63:active {
+    animation: pulse 0.3s ease-in-out;
+}
+
+.scrollable-table {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(123, 63, 242, 0.04);
+}
+
+.scrollable-table table {
+    background: transparent;
+}
+
+.scrollable-table th, .scrollable-table td {
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .scrollable-table {
+        max-height: 200px;
+        overflow-x: auto;
+    }
 }
 
