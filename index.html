@@ -1,66 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Jaco Cost & Level Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#7B3FF2">
+    <title>حاسبة جاكو</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Jaco Calculator</h1>
+    <h1>حاسبة جاكو</h1>
 
     <div class="radio-input">
         <label class="label">
             <input type="radio" id="cost" name="option" value="cost" onclick="showSection('cost')" checked />
-            <p class="text">التكلفة (كونز إلى الريال السعودي(</p>
+            <p class="text">تحويل من كوينز إلى ريال سعودي</p>
         </label>
         <label class="label">
             <input type="radio" id="lvl" name="option" value="lvl" onclick="showSection('lvl')" />
-            <p class="text"> لفل (من/الى)</p>
+            <p class="text">حساب الترقية بين المستويات</p>
         </label>
         <label class="label">
             <input type="radio" id="revenue" name="option" value="revenue" onclick="showSection('revenue')" />
-            <p class="text">كم كسب بالريال؟</p>
+            <p class="text">كم سأربح بالريال السعودي؟</p>
         </label>
     </div>
 
-    <div id="cost-section" class="section-container hidden">
-        <div class="section-header">Cost Calculation</div>
+    <div id="cost-section" class="section-container">
+        <div class="section-header">تحويل كوينز إلى ريال</div>
         <div class="input-row">
-            <label>حط كونز:</label>
-            <input type="number" id="diamonds-input" min="0">
+            <label for="diamonds-input">أدخل عدد الكوينز:</label>
+            <input type="number" id="diamonds-input" min="0" placeholder="أدخل عدد الكوينز">
         </div>
-        <button class="button-63" onclick="calculateCost()">Calculate</button>
+        <button class="button-63" onclick="calculateCost()">احسب</button>
         <div id="cost-result" class="result"></div>
     </div>
 
     <div id="revenue-section" class="section-container hidden">
-        <div class="section-header">Revenue Calculation</div>
+        <div class="section-header">حساب الأرباح</div>
         <div class="input-row">
-            <label>حط كونز:</label>
-            <input type="number" id="revenue-input" min="0">
+            <label for="revenue-input">أدخل عدد الكوينز:</label>
+            <input type="number" id="revenue-input" min="0" placeholder="أدخل عدد الكوينز">
         </div>
-        <button class="button-63" onclick="calculateRevenue()">Calculate</button>
+        <button class="button-63" onclick="calculateRevenue()">احسب</button>
         <div id="revenue-result" class="result"></div>
     </div>
 
     <div id="lvl-section" class="section-container hidden">
-        <div class="section-header">Level Calculation</div>
+        <div class="section-header">حساب الترقية بين المستويات</div>
         <div class="input-row">
-            <label>من لفل:</label>
-            <input type="number" id="level-from" min="1">
+            <label for="level-from">من المستوى:</label>
+            <input type="number" id="level-from" min="1" placeholder="المستوى الحالي">
         </div>
         <div class="input-row">
-            <label>الى لفل</label>
-            <input type="number" id="level-to" min="1">
+            <label for="level-to">إلى المستوى:</label>
+            <input type="number" id="level-to" min="1" placeholder="المستوى المستهدف">
         </div>
-        <button class="button-63" onclick="calculateLevel()">Calculate</button>
+        <button class="button-63" onclick="calculateLevel()">احسب</button>
         <div id="level-result" class="result"></div>
     </div>
-<footer>
+
+    <!-- Popular Gifts Section -->
+    <div class="section-container">
+        <div class="section-header">الهدايا الشائعة وقيمتها</div>
+        <div class="scrollable-table" style="max-height: 300px; overflow-y: auto;">
+            <table style="width:100%; border-collapse:collapse; margin-bottom:10px;">
+                <thead>
+                    <tr style="background:#F3F0FF; color:#7B3FF2;">
+                        <th style="padding:8px; border-radius:8px 0 0 8px;">الهدية</th>
+                        <th style="padding:8px;">كوينز</th>
+                        <th style="padding:8px; border-radius:0 8px 8px 0;">القيمة بالريال</th>
+                    </tr>
+                </thead>
+                <tbody id="gift-table-body">
+                    <!-- JS will fill this -->
+                </tbody>
+            </table>
+        </div>
+        <div style="font-size:0.95em; color:#7B3FF2; text-align:center;">* القيم تقريبية وتعتمد على سعر الكوينز الحالي.</div>
+    </div>
+
+    <footer>
         <p class="credit">AA</p>
     </footer>
-</body>
-</html>
 </body>
 </html>
