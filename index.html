@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#7B3FF2">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-512.png">
     <title>حاسبة جاكو</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('service-worker.js');
+        });
+      }
+    </script>
 </head>
 <body>
     <h1>حاسبة جاكو</h1>
@@ -18,11 +27,11 @@
         </label>
         <label class="label">
             <input type="radio" id="lvl" name="option" value="lvl" onclick="showSection('lvl')" />
-            <p class="text">حساب الترقية بين اللفل</p>
+            <p class="text">حساب الترقية بين المستويات</p>
         </label>
         <label class="label">
             <input type="radio" id="revenue" name="option" value="revenue" onclick="showSection('revenue')" />
-            <p class="text">كم ربح بالريال السعودي؟</p>
+            <p class="text">كم سأربح بالريال السعودي؟</p>
         </label>
     </div>
 
