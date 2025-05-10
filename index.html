@@ -18,6 +18,19 @@
     </script>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" style="position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+      <img src="icon-512.png" alt="حاسبة جاكو" style="width:120px;height:120px;margin-bottom:24px;">
+      <h2 style="color:#fff;font-size:2rem;">جاري التحميل...</h2>
+    </div>
+
+    <!-- A2HS Banner -->
+    <div id="a2hs-banner" style="background:#7B3FF2; color:#fff; padding:16px; text-align:center; border-radius:12px; margin:10px 0; display:none;">
+      <b>نصيحة:</b> أضف التطبيق إلى الشاشة الرئيسية للحصول على تجربة أفضل!<br>
+      <span style="font-size:0.95em;">اضغط على <span style="font-size:1.2em;">&#x1f5d2;</span> أو زر المشاركة ثم اختر <b>إضافة إلى الشاشة الرئيسية</b>.</span>
+      <button onclick="document.getElementById('a2hs-banner').style.display='none'" style="margin-right:12px; background:#fff; color:#7B3FF2; border:none; border-radius:8px; padding:4px 12px; cursor:pointer;">إغلاق</button>
+    </div>
+
     <h1>حاسبة جاكو</h1>
 
     <div class="radio-input">
